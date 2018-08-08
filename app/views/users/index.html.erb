@@ -1,0 +1,13 @@
+</br>
+<h3>Liste des membres du club</h3>
+</br>
+
+<% @users.each do |user| %>
+<h6><%= link_to "Membre #{user.id}", user_path(user.id) %></h6>
+<ul>
+    <li>Prénom : <%= user.first_name %></li>
+    <li>Nom : <%= user.last_name %></li>
+    <li>E-mail : <%= user.email %></li>
+</ul>
+</br>
+<% end %>

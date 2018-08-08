@@ -1,0 +1,21 @@
+</br>
+<h3>Logge toi mon petit</h3>
+</br>
+<div class="formy">
+	<%= form_for(:session, url: login_path) do |f| %>
+		<div class="form-group">
+			<%= f.label 'Saisis ton e-mail' %>
+			<%= f.email_field :email, class:"form-control", placeholder:"E-mail" %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'Saisis ton mot de passe' %>
+			<%= f.password_field :password, class:"form-control", placeholder:"Mot de passe" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :remember_me, class: "checkbox inline" do %>
+        		<%= f.check_box :remember_me %><span>Se souvenir de moi</span>
+      		<% end %>
+		</div>
+		<p><%= f.submit "Se logger", class:"btn btn-primary" %> <a href="/users/new">Nouvel utilisateur ?</a></p>
+	<% end %>
+</div>

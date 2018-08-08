@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClubPrive</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/">Accueil <span class="sr-only">(current)</span></a>
+
+        <% if logged_in? %>
+          <%= link_to "Page utilisateur", user_path(current_user), class:"nav-item nav-link" %>
+          <%= link_to "Page du club", users_path, class:"nav-item nav-link" %>
+          <%= link_to "Se délogger", logout_path, method: :delete, class:"nav-item nav-link" %>
+        <% else %>
+          <%= link_to "Se logger", login_path, class:"nav-item nav-link" %>
+          <%= link_to "Nouvel utilisateur", new_user_path, class:"nav-item nav-link" %>
+        <% end %>
+      </div>
+    </nav>
+
+    <%= yield %>
+
+    <div id="downhere">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+
+  </body>
+</html>

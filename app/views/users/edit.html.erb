@@ -1,0 +1,28 @@
+</br>
+<h3>Modification de l'utilisateur</h3>
+</br>
+<div class="formy">
+	<%= form_for(@user) do |f| %>
+		<div class="form-group">
+			<%= f.label 'Saisis un prénom' %>
+			<%= f.text_field :first_name, class:"form-control", placeholder:"Prénom" %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'Saisis un nom' %>
+			<%= f.text_field :last_name, class:"form-control", placeholder:"Nom" %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'Saisis un e-mail' %>
+			<%= f.email_field :email, class:"form-control", placeholder:"E-mail" %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'Saisis un mot de passe' %>
+			<%= f.password_field :password, class:"form-control", placeholder:"Mot de passe" %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'Confirme le mot de passe' %>
+			<%= f.password_field :password_confirmation, class:"form-control", placeholder:"Mot de passe" %>
+		</div>
+		<%= f.submit "Modifier", class:"btn btn-primary" %>
+	<% end %>
+</div>
